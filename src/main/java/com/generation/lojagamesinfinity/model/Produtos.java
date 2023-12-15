@@ -1,8 +1,6 @@
 package com.generation.lojagamesinfinity.model;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.UpdateTimestamp;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -45,11 +43,11 @@ public class Produtos {
 	@Column(length= 100) 
 	private String descricao;
 	
-    @UpdateTimestamp
-	private LocalDateTime data_lancamento;
+   
+	private LocalDate lancamento;
     
 	@ManyToOne //postagem sera o lado N:1 e tera um objeto tema
-	@JsonIgnoreProperties("produto") 
+	@JsonIgnoreProperties("produtos") 
 	private Categoria categoria;
 
 	public Long getId() {
@@ -84,12 +82,13 @@ public class Produtos {
 		this.descricao = descricao;
 	}
 
-	public LocalDateTime getData_lancamento() {
-		return data_lancamento;
+
+	public LocalDate getLancamento() {
+		return lancamento;
 	}
 
-	public void setData_lancamento(LocalDateTime data_lancamento) {
-		this.data_lancamento = data_lancamento;
+	public void setLancamento(LocalDate lancamento) {
+		this.lancamento = lancamento;
 	}
 
 	public Categoria getCategoria() {
