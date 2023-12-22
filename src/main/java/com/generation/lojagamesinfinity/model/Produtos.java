@@ -49,6 +49,19 @@ public class Produtos {
 	@ManyToOne //postagem sera o lado N:1 e tera um objeto tema
 	@JsonIgnoreProperties("produtos") 
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produtos")
+	private Usuario usuario;
+	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public Long getId() {
 		return id;
